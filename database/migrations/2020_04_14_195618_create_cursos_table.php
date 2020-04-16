@@ -30,13 +30,12 @@ $table->text("midiadestaque");
 $table->bigInteger("cargahoraria");
 $table->text("tipomidia");
             $table->timestamps();
-            $table->timestamps();
-            $table->foreign('autor_id')
+                        $table->foreign('autor_id')
                 ->references('id')
                 ->on('autores')
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
-            $table->foreign('comentario_id')
+            $table->foreign('autor_id')
                 ->references('id')
                 ->on('categorias')
                 ->onDelete("cascade")
