@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/laravel', function () {
 		return view('welcome');
 });
+
+Route::resource("cursos","CursoController");
+
+route::get("/curso","CursoController@index");
