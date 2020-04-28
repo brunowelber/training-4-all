@@ -27,7 +27,7 @@ $table->text("Nome");
 $table->text("descricaocurta");
 $table->text("descricaolonga");
 $table->text("midiadestaque");
-$table->bigInteger("cargahoraria");
+$table->integer("cargahoraria");
 $table->text("tipomidia");
             $table->timestamps();
                         $table->foreign('autor_id')
@@ -35,7 +35,7 @@ $table->text("tipomidia");
                 ->on('autores')
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
-            $table->foreign('autor_id')
+            $table->foreign('categoria_id')
                 ->references('id')
                 ->on('categorias')
                 ->onDelete("cascade")
