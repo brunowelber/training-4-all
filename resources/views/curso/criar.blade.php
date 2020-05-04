@@ -1,14 +1,18 @@
 @extends('template',['title'=>"Cadastrar curso "])
 @section('conteudo')
 		<h1>Cadastro de cursos </h1>
-		<form action="" method="post">
+		<form action="http://training-4-all.offline/cursos" method="post">
 		@csrf
 		<div class="form-group">
-			<label for="categoria_id">Selecione a categoria do curso</label>
-		<select id="categoria_id" name="categoria_id)>
-		<option value=""> incluir categorias de um db </option>
-		</Select>
-	</div>	
+			<label for="categoria">Selecione Categoria</label>
+		<select class="form-control" name="categoiria" id="categoiria">
+		@forelse($categoirias as $categoiria)
+		<option value="{{ $categoiria->id }}">{{ $categoria->nome }}</option>
+		@empty
+		<option value="0">Não possui categoirias cadastradas</option>
+		@endforelse
+		</select>
+		</div>
 		<div class="form-group">
 		<label for="nome">Nome do curso </label>
 		<input name="nome" id="nome" type="text" required class="form-control" />

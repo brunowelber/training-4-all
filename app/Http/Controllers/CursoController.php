@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Curso;
+use App\Categoria;
+use App\Autor;
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
