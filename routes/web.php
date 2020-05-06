@@ -7,3 +7,4 @@ Route::get('/','CursoController@index');
 
 Route::resource("cursos","CursoController");
 Route::resource("categorias","CategoriaController");
+Route::resource("autores","AutorController");

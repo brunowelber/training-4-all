@@ -14,8 +14,8 @@ class CreateAutorsTable extends Migration
     public function up()
     {
         Schema::create('autores', function (Blueprint $table) {
-            $table->id();
-$table->text("autor");
+            $table->bigIncrements('id');
+$table->string("nome");
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ $table->text("autor");
      */
     public function down()
     {
-        Schema::dropIfExists('autors');
+        Schema::dropIfExists('autores');
     }
 }
