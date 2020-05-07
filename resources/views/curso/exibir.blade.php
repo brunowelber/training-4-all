@@ -1,7 +1,8 @@
 @extends('template',['title'=>"detalhes do curso {{ $curso->nome }}"])
 @section('conteudo')
+				<img src="image.jpg" alt="Foto de uma sala de aula (fictícia)" />
+
 		<h1> Curso {{ $curso->nome }}</h1>
-				<src href="image.jpg" alt="Foto de uma sala de aula (fictícia)" />
 				<p> {{ $curso->descricaocurta }} </p>
 				
 				<h2> informações do curso </h2>
