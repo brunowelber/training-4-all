@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
     
-    public function curso(){
+    public function cursos(){
         return $this->belongsTo("App\Curso");
     }
 }

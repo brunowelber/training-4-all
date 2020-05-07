@@ -29,7 +29,11 @@ class CursoController extends Controller
      */
     public function create()
     {
-        return view("curso.criar");
+        $categorias = Categoria::all();
+		return view("curso.criar", [
+		"categorias" => $categorias
+        ]);
+		
     }
 
     /**
@@ -44,11 +48,13 @@ class CursoController extends Controller
         $curso->nome = $request->nome;
         $curso->descricaocurta = $request->descricaocurta;
 		$curso->descricaolonga = $request->descricaolonga;
-		$curso->midiadestaque = $request->midiadestaque;
-		$curso->cargahoraria = $request->cargahoraria;
-		$curso->autor = $request->autor;
-		$curso->tipomidia = $request->tipomidia;
+				$curso->cargahoraria = $request->cargahoraria;
+$curso->midiadestaque = $request->midiadestaque;
+
         $curso->save();
+		$curso->categorias()->sync([
+            $request->categoria
+			]);
         return redirect()->action("CursoController@index");
     }
 

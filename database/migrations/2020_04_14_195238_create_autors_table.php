@@ -17,6 +17,7 @@ class CreateAutorsTable extends Migration
             $table->bigIncrements('id');
 $table->string("nome");
             $table->timestamps();
+			$table->engine='innodb';
         });
     }
 
