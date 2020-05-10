@@ -7,7 +7,7 @@
 
 		<div class="form-group">
 		<label for="nome">Nome da Categoria </label>
-		<input name="nome" id="nome" type="text" required class="form-control" />
+		<input name="nome" id="nome" type="text" autofocus required class="form-control" />
 		</div>
 		
 

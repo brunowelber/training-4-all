@@ -15,7 +15,7 @@ class Curso extends Model
 		return $this->belongsToMany('App\Autor');
     }
 
-    public function categorias()
+    public function categoria()
     {
 //relação 1 para n
         return $this->hasMany("App\Categoria");

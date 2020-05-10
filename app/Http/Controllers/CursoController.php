@@ -42,9 +42,10 @@ class CursoController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Categoria $categoria)
     {
         $curso = new Curso();
+		$curso->categoria_id = $categoria->id;
         $curso->nome = $request->nome;
         $curso->descricaocurta = $request->descricaocurta;
 		$curso->descricaolonga = $request->descricaolonga;
@@ -52,9 +53,7 @@ class CursoController extends Controller
 $curso->midiadestaque = $request->midiadestaque;
 
         $curso->save();
-		$curso->categorias()->sync([
-            $request->categoria
-			]);
+	
         return redirect()->action("CursoController@index");
     }
 
@@ -93,13 +92,13 @@ $curso->midiadestaque = $request->midiadestaque;
      */
     public function update(Request $request, Curso $curso)
     {
-        $curso->nome = $request->nome;
+        $curso->categoria_id = $categoria->id;
+		$curso->nome = $request->nome;
         $curso->descricaocurta = $request->descricaocurta;
 		$curso->descricaolonga = $request->descricaolonga;
 		$curso->midiadestaque = $request->midiadestaque;
 		$curso->cargahoraria = $request->cargahoraria;
-		$curso->autor = $request->autor;
-		$curso->tipomidia = $request->tipomidia;
+		
         $curso->save();
         return redirect()->action("CursoController@index");
     }
