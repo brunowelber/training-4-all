@@ -1,7 +1,7 @@
 @extends('template',['title'=>"Cadastrar Categorias "])
 @section('conteudo')
 		<h1>Cadastro de Categorias </h1>
-		<form action="http://training-4-all.offline/categorias" method="post">
+		<form action="{{ route("categorias.store") }}" method="post">
 		@csrf
 
 

@@ -19,12 +19,11 @@ class CreateCursosTable extends Migration
                 ->index()
                 ->unsigned()
                 ->nullable();
-			$table->text("Nome");
-$table->text("descricaocurta");
+			$table->string("nome");
+$table->string("descricaocurta");
 $table->text("descricaolonga");
-
 $table->integer("cargahoraria");
-$table->text("midiadestaque");
+$table->string("midiadestaque");
             $table->timestamps();
 			$table->foreign('categoria_id')
                 ->references('id')

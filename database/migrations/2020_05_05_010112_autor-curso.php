@@ -15,9 +15,29 @@ class AutorCurso extends Migration
     {
         Schema::create('autor_curso', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer("autor_id");
-            $table->integer("curso_id");
+            $table->bigInteger("autor_id")
+                ->index()
+                ->unsigned()
+                ->nullable();
+
+            $table->bigInteger("curso_id")
+                ->index()
+                ->unsigned()
+                ->nullable();
+
             $table->timestamps();
+			$table->foreign('autor_id')
+                ->references('id')
+                ->on('autores')
+                ->onDelete("cascade")
+                ->onUpdate("cascade");
+
+			$table->foreign('curso_id')
+                ->references('id')
+                ->on('cursos')
+                ->onDelete("cascade")
+                ->onUpdate("cascade");
+				$table->engine = "innodb";
         });
     }
 
