@@ -45,7 +45,7 @@ class CursoController extends Controller
     public function store(Request $request, Categoria $categoria)
     {
         $curso = new Curso();
-		$curso->categoria_id = $categoria->id;
+		$curso->categoria_id = $request->categoria_id;
         $curso->nome = $request->nome;
         $curso->descricaocurta = $request->descricaocurta;
 		$curso->descricaolonga = $request->descricaolonga;
