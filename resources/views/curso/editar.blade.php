@@ -1,14 +1,17 @@
-@extends('template',['title'=>"Editar Curso"])
+@extends('template',['title'=>"Editar Curso $curso->nome "])
 @section('conteudo')
 		<h2>Edição de curso </h2>
 		<form action="{{ route("curso.update",[$curso->id]) }}" method="post">
 		@csrf
 		@method("put")
 		<div class="form-group">
-			<label for="categoria_id">Selecione a categoria do curso</label>
-		<select id="categoria_id" name="categoria_id)>
-		<option value=""> incluir categorias de um db </option>
-		</Select>
+		<label for="categoria_id">Selecione a categoria </label>
+			<select class="form-control" name="categoria_id" id="categoria_id">
+		@forelse($categorias as $categoria)
+		<option value="{{ $categoria->id }}" {{ $categoria->id==$curso->categoria()->pluck("categoria.id")->toArray()[0]?"selected":"" }}>{{ $categoria->nome }}</option>
+		@empty
+		<option value="0">Não possui categorias cadastradas</option>
+		@endforelse
 	</div>
 		<div class="form-group">
 		<label for="nome">Nome do curso </label>
